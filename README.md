@@ -23,4 +23,5 @@
 * Site is responsive and uses media queries
 * Files and folders share a naming convention.
 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

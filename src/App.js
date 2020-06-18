@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Input from './components/Input';
 import logo from './logo.svg';
 import './App.css';
-import { Component } from 'react';
 
 class App extends Component {
 
@@ -11,11 +11,13 @@ class App extends Component {
 
     return (
       <div className="App">
+
         <Header />
         <Hero />
+
       </div>
     );
-    
+
   }
 }
 
