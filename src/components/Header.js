@@ -34,6 +34,7 @@ class Header extends Component {
                     <nav>
                         <ul>
                             <li>Home</li>
+                            <li>Articles</li>
                             <li>About</li>
                         </ul>
                     </nav>
