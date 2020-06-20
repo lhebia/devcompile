@@ -29,13 +29,23 @@ class Header extends Component {
                   alt="logo"
                   onClick={this.titleClickHandler}
                 />
-                <h1 onClick={this.titleClickHandler}>{this.state.mainTitle}</h1>
+                <h2 onClick={this.titleClickHandler}>{this.state.mainTitle}</h2>
               </div>
               <nav>
                 <ul>
-                  <li>Home</li>
-                  <li>Articles</li>
-                  <li>About</li>
+                  <li>
+                    <button  className="ButtonReset" onClick={this.props.onHomeClick}>
+                      Home
+                    </button>
+                  </li>
+                  <li>
+                    <button  className="ButtonReset" onClick={this.props.onArticlesClick}>
+                      Articles
+                    </button>
+                  </li>
+                  <li>
+                    <button className="ButtonReset" >About</button>
+                  </li>
                 </ul>
               </nav>
             </div>

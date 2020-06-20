@@ -33,12 +33,23 @@ code {
 h1, h2, h3 {
   font-size: 1.2rem;
   font-weight: bold;
-  line-height: 1.6rem;
+  line-height: 2.4rem;
 }
 
 p {
   font-size: 0.9rem;
   line-height: 1.3rem;
+}
+
+a {
+  color: var(--dark-font);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover,
+a:focus {
+  color: var(--main-highlight);
 }
 
 .App {
@@ -62,6 +73,19 @@ p {
   border-radius: 5px;
 }
 
+.ButtonReset {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+  margin: 0 1rem;
+}
+
+.ButtonReset:hover,
+.ButtonReset:focus {
+  color: var(--main-highlight);
+}
+
 /* Header section ------- */
 
 .Header {
@@ -82,6 +106,16 @@ p {
   margin: 0 auto;
 }
 
+.Header button {
+  color: var(--light-font);
+  margin: 0;
+}
+
+.Header button:hover,
+.Header button:focus {
+  color: var(--main-highlight);
+}
+
 .logoWrapper {
   display: flex;
   align-items: center;
@@ -98,7 +132,7 @@ p {
   }
 }
 
-.Header h1 {
+.Header h2 {
   flex: 1 0 auto; 
 }
 
@@ -117,14 +151,15 @@ ul li {
   width: 100vw;
   height: 100vh;
   color: var(--dark-font);
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
 }
 
 .Hero-image {
   flex: 1 1 auto;
+  margin: 0 1rem 0 2rem;
 }
 
-.Hero h2 {
+.Hero h1 {
   font-size: 2rem;
   line-height: 2.4rem;
 }
@@ -135,12 +170,19 @@ ul li {
   font-weight: bold;
 }
 
-.Hero-text {
+.Hero-TextContainer {
   flex: 1 2 auto;
+  margin: 0 2rem 0 1rem;
 }
 
 .Hero .btn {
   margin-top: 1rem;
+  transition: all 0.1s ease;
+}
+
+.Hero button:hover,
+.Hero button:focus {
+  background-color: var(--main-bg-color);
 }
 
 /* ARTICLE Section -----------  */

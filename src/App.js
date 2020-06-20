@@ -6,34 +6,42 @@ import ArticlesContainer from './components/ArticlesContainer';
 import './App.css';
 
 class App extends Component {
-
   constructor() {
     super();
     this.state = {
       heroActive: true,
-      articlesActive: false
-    }
+      articlesActive: false,
+      siteTitle: 'Developer Orbits'
+    };
   }
 
-  heroButtonHandler = () => {
+  startArticleHandler = (e) => {
+    e.preventDefault();
     this.setState({
       heroActive: false,
-      articlesActive: true
-    })
+      articlesActive: true,
+    });
+  };
+
+  locationReload(e) {
+    e.preventDefault();
+    window.location.reload();
   }
 
   render() {
-
     return (
       <div className="App">
-        <Header />
+        <Header 
+          onHomeClick={this.locationReload} 
+          onArticlesClick={this.startArticleHandler}
+        />
 
-        {this.state.heroActive ? <Hero buttonHander={this.heroButtonHandler}/> : null }
+        {this.state.heroActive ? (
+          <Hero buttonHander={this.startArticleHandler} />
+        ) : null}
         {this.state.articlesActive ? <ArticlesContainer /> : null}
-
       </div>
     );
-
   }
 }
 

@@ -25,7 +25,6 @@ class ArticlesContainer extends Component {
           tag: dataType
         },
       }).then((response) => {
-        console.log(response.data);
         this.setState({
           articles: response.data
         });
@@ -41,14 +40,14 @@ class ArticlesContainer extends Component {
         return (
           <section className="Articles wrapper">
             <h2>Articles</h2>
-            <div className="Article-Buttons">
-              <button onClick={() => this.articleButtonHandler("react")}>
+            <div className="Article-ButtonContainer">
+              <button className="ButtonReset" onClick={() => this.articleButtonHandler("react")}>
                 React
               </button>
-              <button onClick={() => this.articleButtonHandler("javascript")}>
+              <button className="ButtonReset" onClick={() => this.articleButtonHandler("javascript")}>
                 Javascript
               </button>
-              <button onClick={() => this.articleButtonHandler("css")}>
+              <button className="ButtonReset" onClick={() => this.articleButtonHandler("css")}>
                 CSS
               </button>
             </div>
