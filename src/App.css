@@ -6,6 +6,14 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 img { width: 100% }
 
+:root {
+  --main-bg-color: #fefefe;
+  --second-bg-color: #282c34;
+  --light-font: #ededed;
+  --dark-font: #282c34;
+  --main-highlight: #61dafb;
+}
+
 body {
   margin: 0;
   font-size: 100%;
@@ -14,6 +22,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--main-bg-color);
 }
 
 code {
@@ -34,9 +43,9 @@ p {
 
 .App {
   text-align: center;
-  background-color: #e1e1e1;
+  background-color: var(--main-bg-color);
   min-height: 100vh;
-  color: white;
+  color: var(--light-font);
 }
 
 .wrapper {
@@ -46,10 +55,10 @@ p {
 }
 
 .btn {
-  background-color: #282c34;
-  border: 1px solid black;
+  background-color: var(--main-highlight);
+  border: 1px solid var(--main-highlight);
   padding: 1rem 3rem;
-  color: white;
+  color: var(--dark-font);
   border-radius: 5px;
 }
 
@@ -57,7 +66,7 @@ p {
 
 .Header {
   padding: 1vmin;
-  background-color: #282c34;
+  background-color: var(--second-bg-color);
   border-bottom: 2px solid black;
   position: fixed;
   left: 0;
@@ -107,12 +116,23 @@ ul li {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  color: #282c34;
+  color: var(--dark-font);
   padding: 0 2rem;
 }
 
 .Hero-image {
   flex: 1 1 auto;
+}
+
+.Hero h2 {
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.Hero-quote {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  font-weight: bold;
 }
 
 .Hero-text {
@@ -123,6 +143,18 @@ ul li {
   margin-top: 1rem;
 }
 
+/* ARTICLE Section -----------  */
+
+.Articles {
+  margin-top: 100px;
+  background-color: transparent;
+  color: var(--dark-font);
+}
+
+.Articles-Grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 
 section.mainSection {
   display:flex;

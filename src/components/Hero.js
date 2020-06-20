@@ -11,9 +11,10 @@ class Hero extends Component {
                     />
                 </div>
                 <div className="Hero-text">
-                    <h2>Stay Connected on Dev Central</h2>
+                    <h2>Dev Splash</h2>
+                    <p className="Hero-quote">Leave the world, better than you found it.</p>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus molestias voluptates eveniet esse ducimus assumenda earum quo sunt temporibus qui dolores possimus accusamus, officia, neque quidem?</p>
-                    <button className="btn" onClick={this.props.buttonHander}>Start</button>
+                    <button className="btn" onClick={this.props.buttonHander}>Get Started</button>
                 </div>
             </section>
         )
