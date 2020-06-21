@@ -3,20 +3,12 @@ import logo from './../logo.svg';
 
 class Header extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            mainTitle: 'Developer Orbits'
-        }
-    }
-
-    titleClickHandler = () => {
-        const cohortNames = ['Cohort Orbitz', 'Dankest Cohort', `Threatened Swan's Cohort`, `Friday Colin's Cohort`, `Owen's 72 Survivors`, `Dankshana's Cohort`, `Cohort Pineapple Juice Friday's`, 'Cohort Calc(30 - 3)', `Who ate Esther's oranges?`, `Papa Colin's Cohort`];
-        const randNum = Math.floor(Math.random() * cohortNames.length)
-        this.setState({
-            mainTitle: cohortNames[randNum]
-        })
-    }
+    // constructor() {
+    //     super();
+    //     this.state = {
+    //         mainTitle: 'Devstagram'
+    //     }
+    // }
 
     render() {
         return (
@@ -27,9 +19,9 @@ class Header extends Component {
                   src={logo}
                   className="App-logo"
                   alt="logo"
-                  onClick={this.titleClickHandler}
+                  onClick={this.props.titleClickHandler}
                 />
-                <h2 onClick={this.titleClickHandler}>{this.state.mainTitle}</h2>
+                <h2 onClick={this.props.titleClickHandler}>{this.props.siteTitle}</h2>
               </div>
               <nav>
                 <ul>
