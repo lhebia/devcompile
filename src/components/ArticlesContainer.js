@@ -3,16 +3,19 @@ import ArticlePiece from "./ArticlePiece";
 import axios from 'axios';
 
 class ArticlesContainer extends Component {
+    
+    // Baseline state to reset down to when needed
+    baseState = {
+        articles: [],
+        perPage: 30,
+        onPage: 1,
+        totalPages: null,
+        scrolling: false,
+    }
 
     constructor() {
         super();
-        this.state = {
-            articles: [],
-            perPage: 30,
-            onPage: 1,
-            totalPages: null,
-            scrolling: false,
-        }
+        this.state = this.baseState;
     }
 
     componentDidMount() {
@@ -61,8 +64,13 @@ class ArticlesContainer extends Component {
       }), this.getDataAndSetState)
     }
 
+    // Experimenting resetting state back to original
+    resetState = () => {
+      this.setState(this.baseState);
+    }
+
     articleButtonHandler = (searchKeyWord) => {
-      console.log(searchKeyWord);
+      this.resetState();
       this.getDataAndSetState(searchKeyWord);
     }
 
@@ -70,22 +78,31 @@ class ArticlesContainer extends Component {
         return (
           <section className="Articles wrapper">
             <h2>Articles</h2>
-            {/* <div className="Article-ButtonContainer">
-              <button className="ButtonReset" onClick={() => this.articleButtonHandler("react")}>
+            <div className="Article-ButtonContainer">
+              <button
+                className="ButtonReset"
+                onClick={() => this.articleButtonHandler("react")}
+              >
                 React
               </button>
-              <button className="ButtonReset" onClick={() => this.articleButtonHandler("javascript")}>
+              <button
+                className="ButtonReset"
+                onClick={() => this.articleButtonHandler("javascript")}
+              >
                 Javascript
               </button>
-              <button className="ButtonReset" onClick={() => this.articleButtonHandler("css")}>
+              <button
+                className="ButtonReset"
+                onClick={() => this.articleButtonHandler("css")}
+              >
                 CSS
               </button>
-            </div> */}
+            </div>
             <div>
               <ul className="Articles-Grid">
                 {this.state.articles.map((data) => {
                   return (
-                    <ArticlePiece 
+                    <ArticlePiece
                       key={data.id}
                       socialImage={data.social_image}
                       imageAlt={data.slug}

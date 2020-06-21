@@ -11,7 +11,8 @@ img { width: 100% }
   --second-bg-color: #282c34;
   --light-font: #ededed;
   --dark-font: #282c34;
-  --main-highlight: #61dafb;
+  --main-highlight: #f53d14;
+  /* --main-highlight: #61dafb; */
 }
 
 body {
@@ -69,7 +70,7 @@ a:focus {
   background-color: var(--main-highlight);
   border: 1px solid var(--main-highlight);
   padding: 1rem 3rem;
-  color: var(--dark-font);
+  color: var(--light-font);
   border-radius: 5px;
 }
 
@@ -126,12 +127,6 @@ a:focus {
   flex: 1 1 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .Header h2 {
   flex: 1 0 auto; 
 }
@@ -159,6 +154,11 @@ ul li {
   margin: 0 1rem 0 2rem;
 }
 
+.Hero-TextContainer {
+  flex: 1 3 auto;
+  margin: 0 2rem 0 1rem;
+}
+
 .Hero h1 {
   font-size: 2rem;
   line-height: 2.4rem;
@@ -170,11 +170,6 @@ ul li {
   font-weight: bold;
 }
 
-.Hero-TextContainer {
-  flex: 1 2 auto;
-  margin: 0 2rem 0 1rem;
-}
-
 .Hero .btn {
   margin-top: 1rem;
   transition: all 0.1s ease;
@@ -183,6 +178,7 @@ ul li {
 .Hero button:hover,
 .Hero button:focus {
   background-color: var(--main-bg-color);
+  color: var(--dark-font);
 }
 
 /* ARTICLE Section -----------  */
@@ -244,13 +240,4 @@ input[type="submit"] {
   color: black;
   font-size: 1.5rem;
   font-weight: bold;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

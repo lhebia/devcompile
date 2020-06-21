@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import logo from './../logo.svg';
+import logo from './../assets/logo.png';
 
 class Header extends Component {
-
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         mainTitle: 'Devstagram'
-    //     }
-    // }
 
     render() {
         return (
@@ -21,22 +14,30 @@ class Header extends Component {
                   alt="logo"
                   onClick={this.props.titleClickHandler}
                 />
-                <h2 onClick={this.props.titleClickHandler}>{this.props.siteTitle}</h2>
+                <h2 onClick={this.props.titleClickHandler}>
+                  {this.props.siteTitle}
+                </h2>
               </div>
               <nav>
                 <ul>
                   <li>
-                    <button  className="ButtonReset" onClick={this.props.onHomeClick}>
+                    <button
+                      className="ButtonReset"
+                      onClick={this.props.onHomeClick}
+                    >
                       Home
                     </button>
                   </li>
                   <li>
-                    <button  className="ButtonReset" onClick={this.props.onArticlesClick}>
+                    <button
+                      className="ButtonReset"
+                      onClick={this.props.onArticlesClick}
+                    >
                       Articles
                     </button>
                   </li>
                   <li>
-                    <button className="ButtonReset" >About</button>
+                    <button className="ButtonReset">About</button>
                   </li>
                 </ul>
               </nav>

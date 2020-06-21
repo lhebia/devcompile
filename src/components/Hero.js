@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import splash from './../assets/splash.png';
 
 class Hero extends Component {
     render() {
@@ -6,8 +7,8 @@ class Hero extends Component {
             <section className="Hero wrapper">
                 <div className="Hero-image">
                     <img 
-                        src="https://uploads-ssl.webflow.com/5e5002f2c0906059a29fe8b9/5e789a843ea5b8630fd5a71e_00001-01-p-1080.png"
-                        alt="A man works on a desk with a computer."
+                        src={splash}
+                        alt="Vector art of two individuals planning over a system design background"
                     />
                 </div>
                 <div className="Hero-TextContainer">
