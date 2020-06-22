@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './../assets/logo.png';
+import mainlogo from './../assets/mainlogo.png';
 
 class Header extends Component {
 
@@ -9,7 +9,7 @@ class Header extends Component {
             <div className="wrapper">
               <div className="logoWrapper">
                 <img
-                  src={logo}
+                  src={mainlogo}
                   className="App-logo"
                   alt="logo"
                   onClick={this.props.titleClickHandler}
