@@ -10,6 +10,7 @@ class ArticlesContainer extends Component {
     onPage: 1,
     totalPages: null,
     scrolling: false,
+    userInput: null
   };
 
   constructor() {
@@ -17,7 +18,7 @@ class ArticlesContainer extends Component {
     this.state = this.baseState;
   }
 
-  // API call function, returns promise
+  // Main API call function, returns promise
   getDataAndSetState = (dataType = null) => {
     const { perPage, onPage } = this.state;
     return axios({
@@ -35,7 +36,7 @@ class ArticlesContainer extends Component {
 
   componentDidMount() {
     // Main API call
-    this.getDataAndSetState().then((response) => {
+    this.getDataAndSetState(this.state.userInput).then((response) => {
       const { articles } = this.state;
       this.setState({
         articles: [...articles, ...response.data],
@@ -77,7 +78,7 @@ class ArticlesContainer extends Component {
 
   // Special API call function required for Inifnite scrolling
   getMoreDataAndSetState = () => {
-    this.getDataAndSetState().then((response) => {
+    this.getDataAndSetState(this.state.userInput).then((response) => {
       const { articles } = this.state;
       this.setState({
         articles: [...articles, ...response.data],
@@ -86,8 +87,8 @@ class ArticlesContainer extends Component {
     });
   }
 
-  // Handler to take care of "Filter" buttons on articles page
-  // Call API with keyword pressed and setState accordingly
+  // Handler to take care of "Filter" buttons on articles page and search submit
+  // Call API with keyword pressed or item searched and setState accordingly
   articleButtonHandler = (searchKeyWord) => {
     this.getDataAndSetState(searchKeyWord).then((response) => {
       this.setState({
@@ -95,7 +96,20 @@ class ArticlesContainer extends Component {
         scrolling: false,
       });
     });
+    // Need to add error handling here
   };
+
+  // Bind user input to state
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.articleButtonHandler(this.state.userInput);
+  }
 
   render() {
     return (
@@ -103,12 +117,13 @@ class ArticlesContainer extends Component {
         <div className="Articles-TopBar">
           <h2>Articles</h2>
           <form className="flexContainer">
-            <label className="visuallyHidden" htmlFor="searchKeyword">Search</label>
-            <input type="text" name="searchKeyword" id=""/>
-            <button type="submit">Search</button>
+            <label className="visuallyHidden" htmlFor="userInput">Keyword Search</label>
+            <input onChange={this.handleChange} type="text" name="userInput" id="" value={this.state.userInput}/>
+            <button type="submit" onClick={this.handleSubmit}>Search</button>
           </form>
         </div>
         <div className="Articles-ButtonContainer">
+          <p>Filter by:</p>
           <button
             className="ButtonReset"
             onClick={() => this.articleButtonHandler("react")}

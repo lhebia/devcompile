@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       heroActive: true,
       articlesActive: false,
-      siteTitle: "Devstagram",
+      siteTitle: "Devstagram"
     };
   }
 
