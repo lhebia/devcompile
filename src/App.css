@@ -53,6 +53,10 @@ a:focus {
   color: var(--main-highlight);
 }
 
+.flexContainer {
+  display: flex;
+}
+
 .App {
   text-align: center;
   background-color: var(--main-bg-color);
@@ -177,8 +181,8 @@ ul li {
 
 .Hero button:hover,
 .Hero button:focus {
-  background-color: var(--main-bg-color);
-  color: var(--dark-font);
+  background-color: var(--second-bg-color);
+  color: var(--light-font);
 }
 
 /* ARTICLE Section -----------  */
@@ -194,23 +198,59 @@ ul li {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.Articles-TopBar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
+
+.Articles-TopBar h2 {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.Articles-TopBar form {
+  flex: 1 1 auto;
+  justify-content: flex-end;
+}
+
+.Articles-TopBar form input[type="text"] {
+  width: 100%;
+}
+
+.Articles-ButtonContainer {
+  margin: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+input[type="text"] {
+  border: none;
+  padding: 1rem;
+  background-color: var(--light-font);
+  font-family: monospace;
+}
+
+button[type="submit"] {
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: var(--second-bg-color);
+  color: var(--light-font);
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: var(--main-highlight);
+  color: var(--light-font);
+}
+
 section.mainSection {
   display:flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-}
-
-input[type="text"] {
-  border: none;
-  padding: 1rem;
-}
-
-input[type="submit"] {
-  padding: 1rem;
-  border: none;
-  cursor: pointer;
 }
 
 .toDoList {
