@@ -172,10 +172,10 @@ class ArticlesContainer extends Component {
         <div>
           <ul className="Articles-Grid">
             {!this.state.noResponse ? null : <ErrorArticlePiece />}
-            {this.state.articles.map((data) => {
+            {this.state.articles.map((data, index) => {
               return (
                 <ArticlePiece
-                  key={data.id}
+                  key={index}
                   creationDate={data.readable_publish_date}
                   socialImage={data.social_image}
                   imageAlt={data.slug}
