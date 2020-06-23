@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import ArticlePiece from './ArticlePiece';
 import ErrorArticlePiece from './ErrorArticlePiece';
+import FilterButton from './FilterButton';
 import axios from 'axios';
 
 class ArticlesContainer extends Component {
-  // Baseline state to reset down to when needed
-  baseState = {
-    articles: [],
-    perPage: 30,
-    onPage: 1,
-    totalPages: null,
-    scrolling: false,
-    userInput: '',
-    noResponse: false
-  };
-
+  
   constructor() {
     super();
-    this.state = this.baseState;
+    this.state = {
+      articles: [],
+      perPage: 30,
+      onPage: 1,
+      totalPages: null,
+      scrolling: false,
+      userInput: "",
+      noResponse: false,
+    };
   }
 
   // Main API call function, returns promise
@@ -37,7 +36,7 @@ class ArticlesContainer extends Component {
   };
 
   componentDidMount() {
-    // Main API call
+    // Main API call to set component
     this.getDataAndSetState(this.state.userInput).then((response) => {
       const { articles } = this.state;
       this.setState({
@@ -72,12 +71,6 @@ class ArticlesContainer extends Component {
     );
   };
 
-  // // EXPERIMENT
-  // // Experimenting resetting state back to original
-  // resetState = () => {
-  //   this.setState(this.baseState);
-  // };
-
   // Special API call function required for Inifnite scrolling
   getMoreDataAndSetState = () => {
     this.getDataAndSetState(this.state.userInput).then((response) => {
@@ -87,51 +80,58 @@ class ArticlesContainer extends Component {
         scrolling: false,
       });
     });
-  }
+  };
 
   // Handler to take care of "Filter" buttons on articles page and search submit
   // Call API with keyword pressed or item searched and setState accordingly
   articleButtonHandler = (searchKeyWord) => {
     this.setState({
-      noResponse: false
-    })
-    this.getDataAndSetState(searchKeyWord).then((response) => {
-      if (response.data.length === 0) {
+      noResponse: false,
+    });
+    this.getDataAndSetState(searchKeyWord).then(
+      (response) => {
+        if (response.data.length === 0) {
+          this.setState({
+            noResponse: true,
+            articles: [],
+          });
+          return;
+        }
+        this.setState({
+          articles: [...response.data],
+          scrolling: false,
+        });
+      },
+      (error) => {
         this.setState({
           noResponse: true,
-          articles: []
-        })
-        return;
-      };
-      this.setState({
-        articles: [...response.data],
-        scrolling: false,
-      });
-    }, (error) => {
-      this.setState({
-        noResponse: true
-      });
-    });
+        });
+      }
+    );
   };
 
   // Bind user input to state
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
+  // Specific actions for the filter buttons
   handleFilter = (keyword) => {
+    // Set the keyword into state
     this.setState({
-      userInput: keyword
-    })
+      userInput: keyword,
+    });
+    // Call API with keyword
     this.articleButtonHandler(keyword);
-  }
+  };
 
+  // Specific method for the search feature to prevent default actions
   handleSubmit = (e) => {
     e.preventDefault();
     this.articleButtonHandler(this.state.userInput);
-  }
+  };
 
   render() {
     return (
@@ -156,24 +156,18 @@ class ArticlesContainer extends Component {
         </div>
         <div className="Articles-ButtonContainer">
           <p>Filter by:</p>
-          <button
-            className="ButtonReset"
-            onClick={() => this.handleFilter("react")}
-          >
-            React
-          </button>
-          <button
-            className="ButtonReset"
-            onClick={() => this.handleFilter("javascript")}
-          >
-            Javascript
-          </button>
-          <button
-            className="ButtonReset"
-            onClick={() => this.handleFilter("css")}
-          >
-            CSS
-          </button>
+          <FilterButton
+            filterName="React"
+            clickFilterButton={() => this.handleFilter("react")}
+          />
+          <FilterButton
+            filterName="JavaScript"
+            clickFilterButton={() => this.handleFilter("javascript")}
+          />
+          <FilterButton
+            filterName="CSS"
+            clickFilterButton={() => this.handleFilter("css")}
+          />
         </div>
         <div>
           <ul className="Articles-Grid">
