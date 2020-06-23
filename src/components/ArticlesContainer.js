@@ -72,11 +72,11 @@ class ArticlesContainer extends Component {
     );
   };
 
-  // EXPERIMENT
-  // Experimenting resetting state back to original
-  resetState = () => {
-    this.setState(this.baseState);
-  };
+  // // EXPERIMENT
+  // // Experimenting resetting state back to original
+  // resetState = () => {
+  //   this.setState(this.baseState);
+  // };
 
   // Special API call function required for Inifnite scrolling
   getMoreDataAndSetState = () => {
@@ -121,6 +121,13 @@ class ArticlesContainer extends Component {
     })
   }
 
+  handleFilter = (keyword) => {
+    this.setState({
+      userInput: keyword
+    })
+    this.articleButtonHandler(keyword);
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.articleButtonHandler(this.state.userInput);
@@ -151,21 +158,21 @@ class ArticlesContainer extends Component {
           <p>Filter by:</p>
           <button
             className="ButtonReset"
-            onClick={() => this.articleButtonHandler("react")}
+            onClick={() => this.handleFilter("react")}
           >
             React
           </button>
           <button
             className="ButtonReset"
-            onClick={() => this.articleButtonHandler("javascript")}
+            onClick={() => this.handleFilter("javascript")}
           >
             Javascript
           </button>
           <button
             className="ButtonReset"
-            onClick={() => this.articleButtonHandler("css")}
+            onClick={() => this.handleFilter("css")}
           >
-            SCSS
+            CSS
           </button>
         </div>
         <div>

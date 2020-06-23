@@ -282,3 +282,47 @@ button[type="submit"]:focus {
   background-color: var(--main-highlight);
   color: var(--light-font);
 }
+
+/* // Tablet */
+@media (max-width: 768px) {
+  .Hero {
+    flex-direction: column;
+    padding-top: 80px;
+  }
+
+  .Hero-image {
+    flex: none;
+  }
+
+  .Articles-Grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fullSizeLi {
+    grid-column: 1 / span 1;
+  }
+}
+
+/* // Large Phone */
+@media (max-width: 550px) {
+  .wrapper {
+    width: 100%;
+  }
+
+  .Hero {
+    padding-top: 110px;
+  }
+
+  .Articles-TopBar,
+  .Articles-TopBar .flexContainer {
+    flex-direction: column;
+  }
+
+  .Articles-ButtonContainer {
+    justify-content: center;
+  }
+
+  .Header .wrapper {
+    flex-direction: column;
+  }
+}
