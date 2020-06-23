@@ -157,12 +157,6 @@ class ArticlesContainer extends Component {
           </button>
           <button
             className="ButtonReset"
-            onClick={() => this.articleButtonHandler("gatsby")}
-          >
-            Gatsby
-          </button>
-          <button
-            className="ButtonReset"
             onClick={() => this.articleButtonHandler("javascript")}
           >
             Javascript
@@ -171,13 +165,7 @@ class ArticlesContainer extends Component {
             className="ButtonReset"
             onClick={() => this.articleButtonHandler("css")}
           >
-            CSS
-          </button>
-          <button
-            className="ButtonReset"
-            onClick={() => this.articleButtonHandler("python")}
-          >
-            Python
+            SCSS
           </button>
         </div>
         <div>
