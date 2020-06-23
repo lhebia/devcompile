@@ -173,7 +173,6 @@ class ArticlesContainer extends Component {
           <ul className="Articles-Grid">
             {!this.state.noResponse ? null : <ErrorArticlePiece />}
             {this.state.articles.map((data) => {
-              console.log(data);
               return (
                 <ArticlePiece
                   key={data.id}
