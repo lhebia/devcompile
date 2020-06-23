@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ArticlesContainer from './components/ArticlesContainer';
+import AboutContainer from './components/AboutContainer';
 // import Input from './components/Input';
 import './App.css';
 
@@ -11,21 +12,31 @@ class App extends Component {
     this.state = {
       heroActive: true,
       articlesActive: false,
+      aboutActive: false,
       siteTitle: "Devstagram"
     };
   }
 
-  startArticleHandler = (e) => {
-    e.preventDefault();
+  // Reload entire app
+  locationReloadHandler() {
+    window.location.reload();
+  }
+
+  // Load the Articles component
+  startArticleHandler = () => {
     this.setState({
       heroActive: false,
       articlesActive: true,
+      aboutActive: false
     });
   };
 
-  locationReloadHandler(e) {
-    e.preventDefault();
-    window.location.reload();
+  aboutClickHandler = () => {
+    this.setState({
+      heroActive: false,
+      articlesActive: false,
+      aboutActive: true,
+    });
   }
 
   titleClickHandler = () => {
@@ -54,15 +65,18 @@ class App extends Component {
           siteTitle={this.state.siteTitle}
           onHomeClick={this.locationReloadHandler}
           onArticlesClick={this.startArticleHandler}
+          onAboutClick={this.aboutClickHandler}
           titleClickHandler={this.titleClickHandler}
         />
 
         {this.state.heroActive ? (
-          <Hero 
+          <Hero
             siteTitle={this.state.siteTitle}
-            buttonHander={this.startArticleHandler} />
+            buttonHander={this.startArticleHandler}
+          />
         ) : null}
         {this.state.articlesActive ? <ArticlesContainer /> : null}
+        {this.state.aboutActive ? <AboutContainer componentTitle={this.state.siteTitle}/> : null}
       </div>
     );
   }

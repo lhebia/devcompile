@@ -45,13 +45,12 @@ class ArticlesContainer extends Component {
       });
     });
     // Add scroll listener to window, use to fire handeScroll
-    this.scrollListener = window.addEventListener("scroll", (e) => {
-      this.handleScroll(e);
-    });
+    this.listener = this.handleScroll.bind(this);
+    window.addEventListener("scroll", this.listener);
   }
 
   // Listen for scroll hitting bottom of page
-  handleScroll = (e) => {
+  handleScroll = () => {
     const { scrolling } = this.state;
     if (scrolling) return;
     const lastTile = document.querySelector("ul.Articles-Grid > li:last-child");
@@ -132,6 +131,11 @@ class ArticlesContainer extends Component {
     e.preventDefault();
     this.articleButtonHandler(this.state.userInput);
   };
+
+  componentWillUnmount() {
+    // Remove event listener bound to app on unmount
+    window.removeEventListener("scroll", this.listener);
+  }
 
   render() {
     return (
