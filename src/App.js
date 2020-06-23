@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
+import firebase from "./firebase";
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ArticlesContainer from './components/ArticlesContainer';
 import AboutContainer from './components/AboutContainer';
-// import Input from './components/Input';
 import './App.css';
 
 class App extends Component {
+
   constructor() {
     super();
     this.state = {
       heroActive: true,
       articlesActive: false,
       aboutActive: false,
-      siteTitle: "Devstagram"
+      siteTitle: "Devstagram",
+      savedItems: []
     };
+  }
+
+  componentDidMount() {
+    const dbRef = firebase.database().ref();
+    dbRef.on('value', (response) => {
+      const data = response.val();
+      const newState = [];
+      for (let key in data) {
+        newState.push(data[key]);
+      }
+      this.setState({
+        savedItems: newState,
+      })
+    })
   }
 
   // Reload entire app
