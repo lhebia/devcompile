@@ -22,16 +22,16 @@ export default function AboutContainer(props) {
               and learn about it from others. Built by devs, for devs.
             </p>
             <p>
-              API data from <a href="https://dev.to">Dev.to</a>.
+              API data from <a href="https://dev.to">Dev.to</a> & Illustrations
+              from <a href="https://www.humaaans.com/">Humaaans</a>
             </p>
             <p>
-              Illustrations from{" "}
-              <a href="https://www.humaaans.com/">Humaaans</a>
-            </p>
-            <p>
-              Designed and coded by{" "}
-              <a href="https://lhebia.com">Lawrence Hebia</a> using React, Axios
-              and Firebase.
+              Made with{" "}
+              <span role="img" aria-label="Love">
+                ❤️
+              </span>{" "}
+              in 2020 by <a href="https://lhebia.com">Lawrence Hebia</a> using
+              React, Axios and Firebase
             </p>
           </div>
         </div>
