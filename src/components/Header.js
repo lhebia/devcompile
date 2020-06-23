@@ -37,7 +37,12 @@ class Header extends Component {
                     </button>
                   </li>
                   <li>
-                    <button className="ButtonReset">About</button>
+                    <button
+                      className="ButtonReset"
+                      onClick={this.props.onAboutClick}
+                    >
+                      About
+                    </button>
                   </li>
                 </ul>
               </nav>

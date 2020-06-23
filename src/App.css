@@ -147,7 +147,8 @@ ul li {
 
 /* Hero Section -------- */
 
-.Hero {
+.Hero,
+.About-Container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,6 +270,10 @@ input[type="text"] {
   font-size: 1.2rem;
 }
 
+input[type="text"]:focus {
+  border: 2px solid var(--main-highlight);
+}
+
 button[type="submit"] {
   padding: 1rem;
   border: none;
@@ -281,6 +286,14 @@ button[type="submit"]:hover,
 button[type="submit"]:focus {
   background-color: var(--main-highlight);
   color: var(--light-font);
+}
+
+.About-Image {
+  width: 50%;
+}
+
+.About-Container p {
+  margin: 0.5rem 0;
 }
 
 /* // Tablet */
@@ -311,6 +324,10 @@ button[type="submit"]:focus {
 
   .Hero {
     padding-top: 110px;
+  }
+  
+  .About-Image {
+    padding-top: 180px;
   }
 
   .Articles-TopBar,
