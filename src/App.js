@@ -68,7 +68,6 @@ class App extends Component {
           onAboutClick={this.aboutClickHandler}
           titleClickHandler={this.titleClickHandler}
         />
-
         {this.state.heroActive ? (
           <Hero
             siteTitle={this.state.siteTitle}
