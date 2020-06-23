@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ArticlePiece from "./ArticlePiece";
+import ArticlePiece from './ArticlePiece';
+import ErrorArticlePiece from './ErrorArticlePiece';
 import axios from 'axios';
 
 class ArticlesContainer extends Component {
@@ -10,7 +11,8 @@ class ArticlesContainer extends Component {
     onPage: 1,
     totalPages: null,
     scrolling: false,
-    userInput: null
+    userInput: '',
+    noResponse: false
   };
 
   constructor() {
@@ -49,7 +51,7 @@ class ArticlesContainer extends Component {
     });
   }
 
-  // Listen for scroll
+  // Listen for scroll hitting bottom of page
   handleScroll = (e) => {
     const { scrolling } = this.state;
     if (scrolling) return;
@@ -90,13 +92,26 @@ class ArticlesContainer extends Component {
   // Handler to take care of "Filter" buttons on articles page and search submit
   // Call API with keyword pressed or item searched and setState accordingly
   articleButtonHandler = (searchKeyWord) => {
+    this.setState({
+      noResponse: false
+    })
     this.getDataAndSetState(searchKeyWord).then((response) => {
+      if (response.data.length === 0) {
+        this.setState({
+          noResponse: true,
+          articles: []
+        })
+        return;
+      };
       this.setState({
         articles: [...response.data],
         scrolling: false,
       });
+    }, (error) => {
+      this.setState({
+        noResponse: true
+      });
     });
-    // Need to add error handling here
   };
 
   // Bind user input to state
@@ -117,9 +132,19 @@ class ArticlesContainer extends Component {
         <div className="Articles-TopBar">
           <h2>Articles</h2>
           <form className="flexContainer">
-            <label className="visuallyHidden" htmlFor="userInput">Keyword Search</label>
-            <input onChange={this.handleChange} type="text" name="userInput" id="" value={this.state.userInput}/>
-            <button type="submit" onClick={this.handleSubmit}>Search</button>
+            <label className="visuallyHidden" htmlFor="userInput">
+              Keyword Search
+            </label>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="userInput"
+              id=""
+              value={this.state.userInput}
+            />
+            <button type="submit" onClick={this.handleSubmit}>
+              Search
+            </button>
           </form>
         </div>
         <div className="Articles-ButtonContainer">
@@ -129,6 +154,12 @@ class ArticlesContainer extends Component {
             onClick={() => this.articleButtonHandler("react")}
           >
             React
+          </button>
+          <button
+            className="ButtonReset"
+            onClick={() => this.articleButtonHandler("gatsby")}
+          >
+            Gatsby
           </button>
           <button
             className="ButtonReset"
@@ -142,15 +173,25 @@ class ArticlesContainer extends Component {
           >
             CSS
           </button>
+          <button
+            className="ButtonReset"
+            onClick={() => this.articleButtonHandler("python")}
+          >
+            Python
+          </button>
         </div>
         <div>
           <ul className="Articles-Grid">
+            {!this.state.noResponse ? null : <ErrorArticlePiece />}
             {this.state.articles.map((data) => {
+              console.log(data);
               return (
                 <ArticlePiece
                   key={data.id}
+                  creationDate={data.readable_publish_date}
                   socialImage={data.social_image}
                   imageAlt={data.slug}
+                  positiveReactions={data.positive_reactions_count}
                   url={data.url}
                   title={data.title}
                   description={data.description}

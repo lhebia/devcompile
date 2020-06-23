@@ -132,6 +132,7 @@ a:focus {
   height: 2rem;
   flex: 1 1 auto;
   margin-right: 0.5rem;
+  width: auto;
 }
 
 .Header h2 {
@@ -142,10 +143,6 @@ ul li {
   display: inline-block;
   list-style-type: none;
   padding: 1rem;
-}
-
-nav ul li:last-of-type {
-  padding-right: 0;
 }
 
 /* Hero Section -------- */
@@ -214,9 +211,27 @@ nav ul li:last-of-type {
   padding: 0;
 }
 
+.fullSizeLi {
+  grid-column: 1 / span 2;
+}
+
 .Articles-Grid li p {
   padding: 0 1rem;
   line-height: 1.6rem;
+}
+
+.Articles-Grid li p:first-child {
+  text-align: left;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+
+.ArticlePiece-ButtonContainer {
+  justify-content: space-between;
+}
+
+.ArticlePiece-TextContainer {
+  padding: 1rem;
 }
 
 .Articles-TopBar {
@@ -266,41 +281,4 @@ button[type="submit"]:hover,
 button[type="submit"]:focus {
   background-color: var(--main-highlight);
   color: var(--light-font);
-}
-
-section.mainSection {
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.toDoList {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 0;
-}
-
-.toDoList li {
-  display: flex;
-  justify-content: space-between;
-  width: 400px;
-  margin: 0.2rem auto;
-  background-color: white;
-  border: transparent;
-  color: black;
-}
-
-.toDoList button {
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: black;
-  font-size: 1.5rem;
-  font-weight: bold;
 }

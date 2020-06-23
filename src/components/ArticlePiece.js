@@ -3,11 +3,21 @@ import React from 'react';
 const ArticlePiece = (props) => {
     return (
       <li>
-        <img src={props.socialImage} alt={props.imageAlt}></img>
-        <a href={props.url}>
-          <p>{props.title}</p>
-        </a>
-        <p>{props.description}</p>
+        <p>{props.creationDate}</p>
+        <img
+          src={props.socialImage}
+          alt={props.imageAlt}
+        ></img>
+        <div className="flexContainer ArticlePiece-ButtonContainer">
+          <p>Liked by: {props.positiveReactions}</p>
+          <button className="ButtonReset">Add to list</button>
+        </div>
+        <div className="ArticlePiece-TextContainer">
+          <a href={props.url}>
+            <h3>{props.title}</h3>
+          </a>
+          <p>{props.description}</p>
+        </div>
       </li>
     );
 }
