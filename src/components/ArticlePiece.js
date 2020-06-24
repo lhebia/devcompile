@@ -10,7 +10,7 @@ const ArticlePiece = (props) => {
         ></img>
         <div className="flexContainer ArticlePiece-ButtonContainer">
           <p>Liked by: {props.positiveReactions}</p>
-          <button className="ButtonReset">Add to list</button>
+          <button onClick={props.passId} className="ButtonReset">Add to list</button>
         </div>
         <div className="ArticlePiece-TextContainer">
           <a href={props.url}>
