@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SavedArticlePiece from "./SavedArticlePiece";
 
+// Component to manage Saved Articles area - uses SavedArticlePiece as each article tile
 export default class SavedArticles extends Component {
 
     render() {

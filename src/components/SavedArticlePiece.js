@@ -1,17 +1,16 @@
 import React from "react";
 
+// "Tile" component for each article in Saved Articles
 const SavedArticlePiece = (props) => {
   return (
-    <li>
-      <div className="flexContainer SavedArticlePiece-ButtonContainer">
-        <button
-          aria-label="Delete saved item"
-          onClick={props.deleteItem}
-          className="ButtonReset"
-        >
-          X
-        </button>
-      </div>
+    <li className="SavedArticles">
+      <button
+        aria-label="Delete saved item"
+        onClick={props.deleteItem}
+        className="ButtonReset"
+      >
+        X
+      </button>
       <img src={props.socialImage} alt={props.imageAlt}></img>
       <div className="ArticlePiece-TextContainer">
         <a href={props.url} target="_blank" rel="noopener noreferrer">

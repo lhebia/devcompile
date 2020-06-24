@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import splash from './../assets/splash.png';
 
+// Hero splash page to introduce user to Devcompile
 class Hero extends Component {
     render() {
         return (
@@ -15,10 +16,10 @@ class Hero extends Component {
               <div className="Hero-TextContainer">
                 <h1>{this.props.siteTitle}</h1>
                 <p className="Hero-quote">
-                  Read, Learn, Grow.
+                  Read, Learn, Grow
                 </p>
                 <p>
-                  Devstagram - made for developers - keeps your scrolling productive. 
+                  {this.props.siteTitle} - made for developers to help translate high-level language instructions into executable skills that they can take everywhere they go. 
                 </p>
                 <button className="btn" onClick={this.props.buttonHander}>
                   Get Started

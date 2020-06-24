@@ -1,16 +1,18 @@
 import React from 'react';
 
+// This creates the component that is each article in the "Feed" section
 const ArticlePiece = (props) => {
     return (
       <li>
-        <p>{props.creationDate}</p>
-        <img
-          src={props.socialImage}
-          alt={props.imageAlt}
-        ></img>
+        <img src={props.socialImage} alt={props.imageAlt}></img>
         <div className="flexContainer ArticlePiece-ButtonContainer">
-          <p>Liked by: {props.positiveReactions}</p>
-          <button onClick={props.passId} className="ButtonReset">Add to list</button>
+          <p>
+            {props.creationDate} <span>&#xb7;</span> Liked by:{" "}
+            {props.positiveReactions}
+          </p>
+          <button onClick={props.passId} className="ButtonReset">
+            <code>compile</code>
+          </button>
         </div>
         <div className="ArticlePiece-TextContainer">
           <a href={props.url}>
