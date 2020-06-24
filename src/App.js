@@ -6,6 +6,7 @@ import ArticlesContainer from './components/ArticlesContainer';
 import AboutContainer from './components/AboutContainer';
 import './App.css';
 import SavedArticles from './components/SavedArticles';
+import ErrorAdd from './components/ErrorAdd';
 import axios from 'axios';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
       articlesActive: false,
       savedArticlesActive: false,
       aboutActive: false,
+      errorPresent: false,
       siteTitle: "Devcompile",
       savedItems: [],
     };
@@ -110,7 +112,7 @@ class App extends Component {
       const dbRef = firebase.database().ref();
       dbRef.push(objectToPush);
     }, (error) => {
-      console.log('Error:', error);
+      this.errorHandler();
     });
   };
 
@@ -118,6 +120,19 @@ class App extends Component {
   deleteItem(itemKey) {
     const dbRef = firebase.database().ref();
     dbRef.child(itemKey).remove();
+  }
+
+  // If Error is present on compile content button, show user error component
+  errorHandler = () => {
+    this.setState({
+      errorPresent: true,
+    })
+    // Hide component again after 2 seconds
+    setTimeout(() => {
+      this.setState({
+        errorPresent: false,
+      })
+    }, 2000);
   }
 
   render() {
@@ -138,6 +153,7 @@ class App extends Component {
             buttonHander={this.startArticleHandler}
           />
         ) : null}
+        { this.state.errorPresent ? <ErrorAdd /> : null}
         {this.state.articlesActive ? (
           <ArticlesContainer passUpId={(id) => this.takeId(id)} />
         ) : null}
