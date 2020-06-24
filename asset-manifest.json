@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/lawrence-hebia-project-five/static/css/main.9e7bf510.chunk.css",
+    "main.css": "/lawrence-hebia-project-five/static/css/main.0afb7f80.chunk.css",
     "main.js": "/lawrence-hebia-project-five/static/js/main.bc2d85b0.chunk.js",
     "main.js.map": "/lawrence-hebia-project-five/static/js/main.bc2d85b0.chunk.js.map",
     "runtime-main.js": "/lawrence-hebia-project-five/static/js/runtime-main.fd9583c8.js",
@@ -8,9 +8,9 @@
     "static/js/2.eac215e8.chunk.js": "/lawrence-hebia-project-five/static/js/2.eac215e8.chunk.js",
     "static/js/2.eac215e8.chunk.js.map": "/lawrence-hebia-project-five/static/js/2.eac215e8.chunk.js.map",
     "index.html": "/lawrence-hebia-project-five/index.html",
-    "precache-manifest.c2341974688283b9b0fda8e27672c55d.js": "/lawrence-hebia-project-five/precache-manifest.c2341974688283b9b0fda8e27672c55d.js",
+    "precache-manifest.0259d99f7c267f5a65aa638a481b4c9e.js": "/lawrence-hebia-project-five/precache-manifest.0259d99f7c267f5a65aa638a481b4c9e.js",
     "service-worker.js": "/lawrence-hebia-project-five/service-worker.js",
-    "static/css/main.9e7bf510.chunk.css.map": "/lawrence-hebia-project-five/static/css/main.9e7bf510.chunk.css.map",
+    "static/css/main.0afb7f80.chunk.css.map": "/lawrence-hebia-project-five/static/css/main.0afb7f80.chunk.css.map",
     "static/js/2.eac215e8.chunk.js.LICENSE.txt": "/lawrence-hebia-project-five/static/js/2.eac215e8.chunk.js.LICENSE.txt",
     "static/media/about.png": "/lawrence-hebia-project-five/static/media/about.f8dffb3a.png",
     "static/media/errorMessage.jpg": "/lawrence-hebia-project-five/static/media/errorMessage.4aa6bcbf.jpg",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.fd9583c8.js",
     "static/js/2.eac215e8.chunk.js",
-    "static/css/main.9e7bf510.chunk.css",
+    "static/css/main.0afb7f80.chunk.css",
     "static/js/main.bc2d85b0.chunk.js"
   ]
 }
