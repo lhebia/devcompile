@@ -344,6 +344,16 @@ button[type="submit"]:focus {
   margin: 0.5rem 0;
 }
 
+.ErrorAdd {
+  background-color: var(--main-highlight);
+  color: var(--light-font);
+  position: fixed;
+  top: 50px;
+  right: 0;
+  z-index: 100;
+  padding: 1rem;
+}
+
 /* // Tablet */
 @media (max-width: 768px) {
   .Hero {
