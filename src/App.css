@@ -12,7 +12,6 @@ img { width: 100% }
   --light-font: #ededed;
   --dark-font: #282c34;
   --main-highlight: #f53d14;
-  /* --main-highlight: #61dafb; */
 }
 
 body {
@@ -29,6 +28,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    letter-spacing: 0.06rem;
 }
 
 h1, h2, h3 {
@@ -89,8 +89,6 @@ a:focus {
 .ButtonReset:hover,
 .ButtonReset:focus {
   color: var(--main-highlight);
-  /* background-color: var(--main-highlight);
-  color: var(--light-font); */
 }
 
 /* Header section ------- */
@@ -145,6 +143,8 @@ a:focus {
 
 .Header h2 {
   flex: 1 0 auto; 
+  font-size: 1.6rem;
+  letter-spacing: 0.09rem;
 }
 
 ul li {
@@ -240,6 +240,11 @@ ul li {
 
 .ArticlePiece-ButtonContainer {
   justify-content: space-between;
+  align-items: center;
+}
+
+.ArticlePiece-ButtonContainer button {
+  font-size: 0.9rem;
 }
 
 .ArticlePiece-TextContainer {
@@ -299,28 +304,36 @@ button[type="submit"]:focus {
   color: var(--light-font);
 }
 
+/* // Saved Articles specific area */
+
+.SavedArticles {
+  position: relative;
+}
+
 .SavedArticles h2 {
   margin-bottom: 2rem;
 }
 
-.SavedArticlePiece-ButtonContainer {
-  justify-content: flex-end;
-}
-
-.SavedArticlePiece-ButtonContainer button {
-  background-color: var(--dark-font);
-  color: var(--light-font);
-  width: 1.4rem;
-  height: 1.4rem;
+.SavedArticles button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  opacity: 0.6;
+  background-color: var(--light-font);
+  color: var(--dark-font);
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 50%;
   margin: 0.2rem 0.2rem;
 }
 
-.SavedArticlePiece-ButtonContainer button:hover,
-.SavedArticlePiece-ButtonContainer button:focus {
+.SavedArticles button:hover,
+.SavedArticles button:focus {
   background-color: var(--main-highlight);
   color: var(--light-font);
-  border: 1px solid var(--dark-font);
+  opacity: 0.9;
 }
 
 .About-Image {
@@ -395,6 +408,7 @@ button[type="submit"]:focus {
   }
 }
 
+/* // Extra small screen adjustments */
 @media (max-width: 400px) {
   .About-Image {
     padding-top: 180px;

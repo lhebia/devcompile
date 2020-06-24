@@ -16,7 +16,7 @@ class App extends Component {
       articlesActive: false,
       savedArticlesActive: false,
       aboutActive: false,
-      siteTitle: "Devstagram",
+      siteTitle: "Devcompile",
       savedItems: [],
     };
   }
@@ -91,6 +91,7 @@ class App extends Component {
     });
   };
 
+  // Grab ID from when "Compile" buttons is pressed on each Feed Article
   takeId = (id) => {
     console.log(id);
     axios({
