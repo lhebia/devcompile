@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/lawrence-hebia-project-five/precache-manifest.7054a6e1042b6e17a2b7995a661fb043.js"
+  "/lawrence-hebia-project-five/precache-manifest.c2341974688283b9b0fda8e27672c55d.js"
 );
 
 self.addEventListener('message', (event) => {
