@@ -33,7 +33,15 @@ class Header extends Component {
                       className="ButtonReset"
                       onClick={this.props.onArticlesClick}
                     >
-                      Articles
+                      Feed
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="ButtonReset"
+                      onClick={this.props.onSavedButtonClick}
+                    >
+                      Saved<span className="SavedCounter">{this.props.savedCounter}</span>
                     </button>
                   </li>
                   <li>

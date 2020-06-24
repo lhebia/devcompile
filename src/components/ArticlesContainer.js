@@ -141,7 +141,9 @@ class ArticlesContainer extends Component {
     return (
       <section className="Articles wrapper">
         <div className="Articles-TopBar">
-          <h2>Articles</h2>
+          <h2>
+            Feed
+          </h2>
           <form className="flexContainer">
             <label className="visuallyHidden" htmlFor="userInput">
               Keyword Search
@@ -187,6 +189,7 @@ class ArticlesContainer extends Component {
                   url={data.url}
                   title={data.title}
                   description={data.description}
+                  passId={() => this.props.passUpId(data.id)}
                 />
               );
             })}
