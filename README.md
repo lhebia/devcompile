@@ -1,5 +1,7 @@
 # Project 5 - React
 
+Live site can be found here: https://lhebia.github.io/lawrence-hebia-project-five/
+
 ## Main Requirements
 
 * Uses React, and no jQuery
