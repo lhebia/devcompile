@@ -80,7 +80,14 @@ a:focus {
   border-radius: 5px;
 }
 
+.btn:hover {
+  color: var(--light-font);
+  background-color: var(--second-bg-color);
+  border: none;
+}
+
 .ButtonReset {
+  /* color: white; */
   background-color: transparent;
   border: none;
   padding: 0;
@@ -113,13 +120,13 @@ a:focus {
   margin: 0 auto;
 }
 
-.Header button {
+.Header .ButtonReset {
   color: var(--light-font);
   margin: 0;
 }
 
-.Header button:hover,
-.Header button:focus {
+.Header .ButtonReset:hover,
+.Header .ButtonReset:focus {
   color: var(--main-highlight);
 }
 
@@ -134,6 +141,7 @@ a:focus {
 .logoWrapper {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .App-logo {
@@ -144,10 +152,16 @@ a:focus {
 }
 
 .Header h2 {
+  color: var(--light-font);
   flex: 1 0 auto; 
   font-size: 1.4rem;
   letter-spacing: 0.08rem;
   font-family: 'Ubuntu Mono', monospace;
+}
+
+.Header h2:hover,
+.Header h2:focus {
+  color: var(--main-highlight);
 }
 
 ul li {

@@ -1,56 +1,43 @@
 import React, { Component } from 'react';
 import mainlogo from './../assets/mainlogo.png';
+import { Link } from "react-router-dom";
 
-class Header extends Component {
+export default class Header extends Component {
 
     render() {
         return (
           <header className="Header">
             <div className="wrapper">
-              <div className="logoWrapper">
-                <img
-                  src={mainlogo}
-                  className="App-logo"
-                  alt="logo"
-                  onClick={this.props.titleClickHandler}
-                />
-                <h2 onClick={this.props.titleClickHandler}>
-                  {this.props.siteTitle}
-                </h2>
-              </div>
+              <Link to="/">
+                <div className="logoWrapper">
+                  <img src={mainlogo} className="App-logo" alt="logo" />
+                  <h2>{this.props.siteTitle}</h2>
+                </div>
+              </Link>
               <nav>
                 <ul>
                   <li>
-                    <button
-                      className="ButtonReset"
-                      onClick={this.props.onHomeClick}
-                    >
+                    <Link to="/" className="ButtonReset">
                       Home
-                    </button>
+                    </Link>
                   </li>
                   <li>
-                    <button
-                      className="ButtonReset"
-                      onClick={this.props.onArticlesClick}
-                    >
+                    <Link to="/feed" className="ButtonReset">
                       Feed
-                    </button>
+                    </Link>
                   </li>
                   <li>
-                    <button
-                      className="ButtonReset"
-                      onClick={this.props.onSavedButtonClick}
-                    >
-                      Compiled<span className="SavedCounter">{this.props.savedCounter}</span>
-                    </button>
+                    <Link to="/compiled" className="ButtonReset">
+                      Compiled
+                      <span className="SavedCounter">
+                        {this.props.savedCounter}
+                      </span>
+                    </Link>
                   </li>
                   <li>
-                    <button
-                      className="ButtonReset"
-                      onClick={this.props.onAboutClick}
-                    >
+                    <Link to="/about" className="ButtonReset">
                       About
-                    </button>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -59,5 +46,3 @@ class Header extends Component {
         );
     }
 }
-
-export default Header;

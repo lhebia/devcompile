@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import splash from './../assets/splash.png';
+import { Link } from "react-router-dom";
 
 // Hero splash page to introduce user to Devcompile
 class Hero extends Component {
@@ -21,9 +22,9 @@ class Hero extends Component {
                 <p>
                   {this.props.siteTitle} - made for developers to help translate high-level language instructions into executable skills that they can take everywhere they go. 
                 </p>
-                <button className="btn" onClick={this.props.buttonHander}>
+                <Link className="btn" to="/feed">
                   Get Started
-                </button>
+                </Link>
               </div>
             </section>
           </div>

@@ -6,8 +6,9 @@ import ArticlesContainer from './components/ArticlesContainer';
 import AboutContainer from './components/AboutContainer';
 import './App.css';
 import SavedArticles from './components/SavedArticles';
-import ErrorAdd from './components/ErrorAdd';
+// import ErrorAdd from './components/ErrorAdd';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -42,56 +43,6 @@ class App extends Component {
   locationReloadHandler() {
     window.location.reload();
   }
-
-  // Load the Articles component, unmount all others
-  startArticleHandler = () => {
-    this.setState({
-      heroActive: false,
-      articlesActive: true,
-      aboutActive: false,
-      savedArticlesActive: false,
-    });
-  };
-
-  // Load the About component, unmount all others
-  aboutClickHandler = () => {
-    this.setState({
-      heroActive: false,
-      articlesActive: false,
-      aboutActive: true,
-      savedArticlesActive: false,
-    });
-  };
-
-  // Load the Saved Articles component, unmount all others
-  savedArticleClickHandler = () => {
-    this.setState({
-      heroActive: false,
-      articlesActive: false,
-      aboutActive: false,
-      savedArticlesActive: true,
-    });
-  };
-
-  // Playful function to switch the site title names to those in a list by random
-  titleClickHandler = () => {
-    const cohortNames = [
-      "Cohort Orbitz",
-      "Dankest Cohort",
-      `Threatened Swan's Cohort`,
-      `Friday Colin's Cohort`,
-      `Owen's 72 Survivors`,
-      `Dankshana's Cohort`,
-      `Cohort Pineapple Juice Friday's`,
-      "Cohort Calc(30 - 3)",
-      `Who ate Esther's oranges?`,
-      `Papa Colin's Cohort`,
-    ];
-    const randNum = Math.floor(Math.random() * cohortNames.length);
-    this.setState({
-      siteTitle: cohortNames[randNum],
-    });
-  };
 
   // Grab ID from when "Compile" buttons is pressed on each Feed Article
   takeId = (id) => {
@@ -138,34 +89,50 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
-          siteTitle={this.state.siteTitle}
-          onHomeClick={this.locationReloadHandler}
-          onArticlesClick={this.startArticleHandler}
-          onAboutClick={this.aboutClickHandler}
-          onSavedButtonClick={this.savedArticleClickHandler}
-          titleClickHandler={this.titleClickHandler}
-          savedCounter={this.state.savedItems.length}
-        />
-        {this.state.heroActive ? (
-          <Hero
+        <Router>
+          <Header
             siteTitle={this.state.siteTitle}
-            buttonHander={this.startArticleHandler}
+            locationReloadHandler={this.locationReloadHandler}
+            savedCounter={this.state.savedItems.length}
           />
-        ) : null}
-        { this.state.errorPresent ? <ErrorAdd /> : null}
-        {this.state.articlesActive ? (
-          <ArticlesContainer passUpId={(id) => this.takeId(id)} />
-        ) : null}
-        {this.state.aboutActive ? (
-          <AboutContainer componentTitle={this.state.siteTitle} />
-        ) : null}
-        {this.state.savedArticlesActive ? (
-          <SavedArticles
-            deleteItem={(itemKey) => this.deleteItem(itemKey)}
-            data={this.state.savedItems}
-          />
-        ) : null}
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => {
+                return (
+                  <Hero
+                    siteTitle={this.state.siteTitle}
+                    buttonHander={this.startArticleHandler}
+                  />
+                );
+              }}
+            />
+            <Route
+              path="/feed"
+              render={() => {
+                return <ArticlesContainer passUpId={(id) => this.takeId(id)} />;
+              }}
+            />
+            <Route
+              path="/about"
+              render={() => {
+                return <AboutContainer componentTitle={this.state.siteTitle} />;
+              }}
+            />
+            <Route
+              path="/compiled"
+              render={() => {
+                return (
+                  <SavedArticles
+                    deleteItem={(itemKey) => this.deleteItem(itemKey)}
+                    data={this.state.savedItems}
+                  />
+                );
+              }}
+            />
+          </Switch>
+        </Router>
       </div>
     );
   }
