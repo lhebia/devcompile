@@ -1,5 +1,6 @@
-# Project 5 - React
+# Project 5 - Devcompile
 
+A React powered, Dev.to article social feed that allows you to save articles for later viewing.
 Live site can be found here: https://lhebia.github.io/lawrence-hebia-project-five/
 
 ## Main Requirements
