@@ -183,7 +183,7 @@ ul li {
 }
 
 .Hero-image {
-  flex: 1 1 auto;
+  flex: 1 2 auto;
   margin: 0 1rem 0 2rem;
 }
 
@@ -376,17 +376,19 @@ button[type="submit"]:focus {
   padding: 1rem;
 }
 
-/* // Tablet */
-@media (max-width: 768px) {
+@media (max-width: 840px) {
   .Hero {
-    flex-direction: column;
     padding-top:110px;
+    flex-direction: column;
   }
 
   .Hero-image {
     flex: none;
   }
+}
 
+/* // Tablet */
+@media (max-width: 768px) {
   .Articles-Grid {
     grid-template-columns: 1fr;
   }
