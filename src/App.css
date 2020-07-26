@@ -245,6 +245,10 @@ ul li {
   padding: 0;
 }
 
+.Articles-Grid li img {
+  border-radius: 5px 5px 0 0;
+}
+
 .fullSizeLi {
   grid-column: 1 / span 2;
 }
@@ -267,6 +271,18 @@ ul li {
 
 .ArticlePiece-ButtonContainer button {
   font-size: 0.9rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+  background-color: var(--main-highlight);
+  color: var(--light-font);
+  opacity: 0.6;
+}
+
+.ArticlePiece-ButtonContainer button:hover,
+.ArticlePiece-ButtonContainer button:focus {
+  background-color: var(--main-highlight);
+  color: var(--light-font);
+  opacity: 1;
 }
 
 .ArticlePiece-TextContainer {

@@ -4,7 +4,10 @@ import React from 'react';
 const ArticlePiece = (props) => {
     return (
       <li>
-        <img src={props.socialImage} alt={props.imageAlt}></img>
+        <a href={props.url}>
+          <img src={props.socialImage} alt={props.imageAlt}></img>
+        </a>
+        {/* <img src={props.socialImage} alt={props.imageAlt}></img> */}
         <div className="flexContainer ArticlePiece-ButtonContainer">
           <p>
             {props.creationDate} <span>&#xb7;</span> Liked by:{" "}
