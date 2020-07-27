@@ -4,7 +4,7 @@ import React from 'react';
 const ArticlePiece = (props) => {
     return (
       <li>
-        <a href={props.url}>
+        <a href={props.url} target="_blank" rel="noopener noreferrer">
           <img src={props.socialImage} alt={props.imageAlt}></img>
         </a>
         {/* <img src={props.socialImage} alt={props.imageAlt}></img> */}
@@ -18,7 +18,7 @@ const ArticlePiece = (props) => {
           </button>
         </div>
         <div className="ArticlePiece-TextContainer">
-          <a href={props.url}>
+          <a href={props.url} target="_blank" rel="noopener noreferrer">
             <h3>{props.title}</h3>
           </a>
           <p>{props.description}</p>
