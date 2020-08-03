@@ -7,7 +7,6 @@ const ArticlePiece = (props) => {
         <a href={props.url} target="_blank" rel="noopener noreferrer">
           <img src={props.socialImage} alt={props.imageAlt}></img>
         </a>
-        {/* <img src={props.socialImage} alt={props.imageAlt}></img> */}
         <div className="flexContainer ArticlePiece-ButtonContainer">
           <p>
             {props.creationDate} <span>&#xb7;</span> Liked by:{" "}

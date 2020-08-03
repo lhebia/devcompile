@@ -46,7 +46,6 @@ class App extends Component {
 
   // Grab ID from when "Compile" buttons is pressed on each Feed Article
   takeId = (id) => {
-    console.log(id);
     axios({
       url: `https://dev.to/api/articles/${id}`,
       method: "GET",
