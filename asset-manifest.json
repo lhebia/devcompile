@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/lawrence-hebia-project-five/static/css/main.c79b8699.chunk.css",
-    "main.js": "/lawrence-hebia-project-five/static/js/main.f8e7267e.chunk.js",
-    "main.js.map": "/lawrence-hebia-project-five/static/js/main.f8e7267e.chunk.js.map",
+    "main.js": "/lawrence-hebia-project-five/static/js/main.05611eef.chunk.js",
+    "main.js.map": "/lawrence-hebia-project-five/static/js/main.05611eef.chunk.js.map",
     "runtime-main.js": "/lawrence-hebia-project-five/static/js/runtime-main.fd9583c8.js",
     "runtime-main.js.map": "/lawrence-hebia-project-five/static/js/runtime-main.fd9583c8.js.map",
-    "static/js/2.3376cf54.chunk.js": "/lawrence-hebia-project-five/static/js/2.3376cf54.chunk.js",
-    "static/js/2.3376cf54.chunk.js.map": "/lawrence-hebia-project-five/static/js/2.3376cf54.chunk.js.map",
+    "static/js/2.10edc502.chunk.js": "/lawrence-hebia-project-five/static/js/2.10edc502.chunk.js",
+    "static/js/2.10edc502.chunk.js.map": "/lawrence-hebia-project-five/static/js/2.10edc502.chunk.js.map",
     "index.html": "/lawrence-hebia-project-five/index.html",
-    "precache-manifest.70e63784a278be068fad36e3ac731edf.js": "/lawrence-hebia-project-five/precache-manifest.70e63784a278be068fad36e3ac731edf.js",
+    "precache-manifest.394d970b2650f881a162544b18cc4fb2.js": "/lawrence-hebia-project-five/precache-manifest.394d970b2650f881a162544b18cc4fb2.js",
     "service-worker.js": "/lawrence-hebia-project-five/service-worker.js",
     "static/css/main.c79b8699.chunk.css.map": "/lawrence-hebia-project-five/static/css/main.c79b8699.chunk.css.map",
-    "static/js/2.3376cf54.chunk.js.LICENSE.txt": "/lawrence-hebia-project-five/static/js/2.3376cf54.chunk.js.LICENSE.txt",
+    "static/js/2.10edc502.chunk.js.LICENSE.txt": "/lawrence-hebia-project-five/static/js/2.10edc502.chunk.js.LICENSE.txt",
     "static/media/about.png": "/lawrence-hebia-project-five/static/media/about.f8dffb3a.png",
     "static/media/errorMessage.jpg": "/lawrence-hebia-project-five/static/media/errorMessage.4aa6bcbf.jpg",
     "static/media/splash.png": "/lawrence-hebia-project-five/static/media/splash.f847defb.png"
   },
   "entrypoints": [
     "static/js/runtime-main.fd9583c8.js",
-    "static/js/2.3376cf54.chunk.js",
+    "static/js/2.10edc502.chunk.js",
     "static/css/main.c79b8699.chunk.css",
-    "static/js/main.f8e7267e.chunk.js"
+    "static/js/main.05611eef.chunk.js"
   ]
 }
