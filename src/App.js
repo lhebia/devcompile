@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import firebase from "./firebase";
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -8,7 +9,9 @@ import './App.css';
 import SavedArticles from './components/SavedArticles';
 // import ErrorAdd from './components/ErrorAdd';
 import axios from 'axios';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ArticleEngaged from './components/ArticleEngaged';
+import '@emotion/core';
+import '@emotion/styled';
 
 class App extends Component {
   constructor() {
@@ -21,6 +24,8 @@ class App extends Component {
       errorPresent: false,
       siteTitle: "Devcompile",
       savedItems: [],
+      articleEngaged: false,
+      articleAction: 'Compiling',
     };
   }
 
@@ -44,8 +49,24 @@ class App extends Component {
     window.location.reload();
   }
 
+  articleEngaged = () => {
+    this.setState({
+      articleEngaged: true,
+    })
+    this.disEngageModal();
+  }
+
+  disEngageModal = () => {
+    setTimeout(() => {
+      this.setState({
+        articleEngaged: false,
+      })
+    }, 2000)
+  }
+
   // Grab ID from when "Compile" buttons is pressed on each Feed Article
   takeId = (id) => {
+    this.articleEngaged();
     axios({
       url: `https://dev.to/api/articles/${id}`,
       method: "GET",
@@ -68,6 +89,7 @@ class App extends Component {
 
   // Remove the saved item from firebase
   deleteItem(itemKey) {
+    // this.articleEngaged(`articleRemoved`);
     const dbRef = firebase.database().ref();
     dbRef.child(itemKey).remove();
   }
@@ -94,6 +116,7 @@ class App extends Component {
             locationReloadHandler={this.locationReloadHandler}
             savedCounter={this.state.savedItems.length}
           />
+          {this.state.articleEngaged ? <ArticleEngaged action={this.state.articleAction} /> : null}
           <Switch>
             <Route
               exact
