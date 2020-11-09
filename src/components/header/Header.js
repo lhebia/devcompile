@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import mainlogo from './../assets/mainlogo.png';
+import mainlogo from '../../assets/mainlogo.png';
 import { Link } from "react-router-dom";
 
 export default class Header extends Component {

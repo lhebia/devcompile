@@ -1,5 +1,5 @@
 import React from "react";
-import errorMessage from "./../assets/errorMessage.jpg";
+import errorMessage from "../../assets/errorMessage.jpg";
 
 const ErrorArticlePiece = () => {
   return (

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import firebase from "./firebase";
-import Header from './components/Header';
-import Hero from './components/Hero';
-import ArticlesContainer from './components/ArticlesContainer';
-import AboutContainer from './components/AboutContainer';
+import Header from './components/header/Header';
+import Hero from './components/hero/Hero';
+import ArticlesContainer from './components/articles/ArticlesContainer';
+import AboutContainer from './components/about/AboutContainer';
 import './App.css';
-import SavedArticles from './components/SavedArticles';
+import SavedArticles from './components/compiled/SavedArticles';
 // import ErrorAdd from './components/ErrorAdd';
 import axios from 'axios';
-import ArticleEngaged from './components/ArticleEngaged';
+import ArticleEngaged from './components/articles/ArticleEngaged';
 import '@emotion/core';
 import '@emotion/styled';
 

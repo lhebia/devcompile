@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import splash from './../assets/splash.png';
+import splash from '../../assets/splash.png';
 import { Link } from "react-router-dom";
 
 // Hero splash page to introduce user to Devcompile
