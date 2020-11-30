@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import firebase from "./firebase";
+import axios from 'axios';
+import '@emotion/core';
+import '@emotion/styled';
+
 import Header from './components/header/Header';
 import Hero from './components/hero/Hero';
 import ArticlesContainer from './components/articles/ArticlesContainer';
 import AboutContainer from './components/about/AboutContainer';
 import './App.css';
 import SavedArticles from './components/compiled/SavedArticles';
-// import ErrorAdd from './components/ErrorAdd';
-import axios from 'axios';
 import ArticleEngaged from './components/articles/ArticleEngaged';
-import '@emotion/core';
-import '@emotion/styled';
 
 class App extends Component {
   constructor() {
@@ -42,11 +42,6 @@ class App extends Component {
         savedItems: newState,
       });
     });
-  }
-
-  // Reload entire app
-  locationReloadHandler() {
-    window.location.reload();
   }
 
   articleEngaged = () => {
@@ -82,14 +77,14 @@ class App extends Component {
       };
       const dbRef = firebase.database().ref();
       dbRef.push(objectToPush);
-    }, (error) => {
+    }, (err) => {
+      console.log(err);
       this.errorHandler();
     });
   };
 
   // Remove the saved item from firebase
   deleteItem(itemKey) {
-    // this.articleEngaged(`articleRemoved`);
     const dbRef = firebase.database().ref();
     dbRef.child(itemKey).remove();
   }
@@ -110,10 +105,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {/* Below required for deploying to github pages */}
         <Router basename={process.env.PUBLIC_URL}>
           <Header
             siteTitle={this.state.siteTitle}
-            locationReloadHandler={this.locationReloadHandler}
             savedCounter={this.state.savedItems.length}
           />
           {this.state.articleEngaged ? <ArticleEngaged action={this.state.articleAction} /> : null}

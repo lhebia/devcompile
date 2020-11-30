@@ -2,7 +2,7 @@ import React from 'react'
 import SavedArticlePiece from "./SavedArticlePiece";
 
 // Component to manage Saved Articles area - uses SavedArticlePiece as each article tile
-const SavedArticles = ({ data }) => {
+const SavedArticles = ({ data, deleteItem }) => {
   return (
     <div className="Articles SavedArticles">
       <h2>
@@ -19,7 +19,7 @@ const SavedArticles = ({ data }) => {
               url={name.url}
               title={name.title}
               description={name.description}
-              deleteItem={() => this.props.deleteItem(key)}
+              deleteItem={() => deleteItem(key)}
             />
           );
         })}
