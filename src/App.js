@@ -105,8 +105,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* Below required for deploying to github pages */}
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router basename="/">
           <Header
             siteTitle={this.state.siteTitle}
             savedCounter={this.state.savedItems.length}

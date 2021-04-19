@@ -27,7 +27,7 @@ class ArticlesContainer extends Component {
       method: "GET",
       dataType: "JSON",
       params: {
-        "api-key": "P2W9zTv2CUZhGasCa3PiU2Gf",
+        "api-key": process.env.DEV_API_KEY,
         tag: dataType,
         per_page: perPage,
         page: onPage,
